@@ -50,7 +50,7 @@ const facilities = [
 
 const DetailCafePage = ({ params }: { params: { cafeName: string } }) => {
   return (
-    <section className="layout mt-[36px] px-5 lg:px-0">
+    <section className="layout mt-[36px] px-5 pb-5 lg:px-0">
       <Breadcrumb className="mb-[40px]" />
       <div className="mb-5">
         <h1 className="text-4xl font-semibold text-stone-900 mb-1">

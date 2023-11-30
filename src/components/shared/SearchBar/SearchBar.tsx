@@ -15,4 +15,4 @@ const SearchBar = ({ className = "" }: { className?: string }) => {
   );
 };
 
-export default forwardRef(SearchBar);
+export default SearchBar;

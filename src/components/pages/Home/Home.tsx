@@ -2,7 +2,7 @@
 
 import Card from "@/components/shared/Card";
 import Jumbotron from "@/components/shared/Jumbotron";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext } from "react";
 import { HomeContext } from "./context/HomeContext";
 
 const cafeList = [
@@ -84,7 +84,7 @@ const Home = () => {
   );
 
   return (
-    <section className="layout">
+    <section className="layout pb-5">
       <Jumbotron />
       <div className="px-5 lg:px-0 pt-[24px]">
         <div className="grid grid-cols-cafe gap-4">
