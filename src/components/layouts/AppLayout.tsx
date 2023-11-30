@@ -2,6 +2,7 @@ import { Montserrat } from "next/font/google";
 import React, { ReactNode } from "react";
 import "@/app/globals.css";
 import Header from "@/components/shared/Header";
+import { HomeProvider } from "../pages/Home/context/HomeContext";
 
 const monserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700"],
@@ -13,8 +14,10 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html className={monserrat.className}>
       <body>
-        <Header />
-        {children}
+        <HomeProvider>
+          <Header />
+          {children}
+        </HomeProvider>
       </body>
     </html>
   );

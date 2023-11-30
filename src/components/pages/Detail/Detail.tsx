@@ -1,5 +1,3 @@
-"use client";
-
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import Link from "next/link";
 import React from "react";
@@ -50,7 +48,7 @@ const facilities = [
   },
 ];
 
-const DetailCafePage = ({ params }: { params: { name: string } }) => {
+const DetailCafePage = ({ params }: { params: { cafeName: string } }) => {
   return (
     <section className="layout mt-[36px] px-5 lg:px-0">
       <Breadcrumb className="mb-[40px]" />
@@ -63,7 +61,7 @@ const DetailCafePage = ({ params }: { params: { name: string } }) => {
         </h5>
         <RowWrapper className="gap-2 mb-4">
           <IcMoney />
-          <p className="text-sm font-medium">IDR 18,000 - 50,000</p>
+          <p className="text-sm font-medium">IDR 18,000 - 80,000</p>
         </RowWrapper>
         <RowWrapper className="gap-2 mb-2">
           <IcLocation />
@@ -86,7 +84,7 @@ const DetailCafePage = ({ params }: { params: { name: string } }) => {
       </div>
       <hr />
       <div className="my-5">
-        <h2 className="text-2xl font-semibold mb-4">Fasilitas</h2>
+        <h2 className="text-2xl font-semibold mb-4">Facilities</h2>
         <div className="flex gap-5 flex-wrap items-center">
           {facilities.map((item) => (
             <RowWrapper key={item.name} className="gap-2">
@@ -98,7 +96,7 @@ const DetailCafePage = ({ params }: { params: { name: string } }) => {
       </div>
       <hr />
       <div className="my-5">
-        <h2 className="text-2xl font-semibold mb-4">Kontak</h2>
+        <h2 className="text-2xl font-semibold mb-4">Contact</h2>
         <RowWrapper className="gap-2">
           <IcInstagram />
           <p className="text-sm font-medium">@xyzcoffee</p>

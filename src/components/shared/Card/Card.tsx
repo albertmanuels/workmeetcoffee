@@ -1,11 +1,12 @@
 import Link from "next/link";
 import React from "react";
 
-const Card = ({ data }) => {
+const Card = ({ data }: CardProps) => {
   const formatString = (str: string) => {
     const result = str.replace(/ /g, "-").toLowerCase();
     return result;
   };
+
   return (
     <Link href={`/detail/${formatString(data.name)}`}>
       <div className="w-min-[200px] px-4 py-3 border border-none rounded-md drop-shadow-md shadow-slate-300 shadow-md">

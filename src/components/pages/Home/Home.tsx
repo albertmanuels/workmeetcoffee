@@ -1,5 +1,9 @@
+"use client";
+
 import Card from "@/components/shared/Card";
-import React from "react";
+import Jumbotron from "@/components/shared/Jumbotron";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { HomeContext } from "./context/HomeContext";
 
 const cafeList = [
   {
@@ -72,16 +76,25 @@ const cafeList = [
   },
 ];
 
-const Container = () => {
+const Home = () => {
+  const { searchValue } = useContext(HomeContext);
+
+  const filteredCafe = cafeList.filter((cafe) =>
+    cafe.name.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
   return (
-    <section className="px-5 lg:px-0 pt-[24px]">
-      <div className="grid grid-cols-cafe gap-4">
-        {cafeList.map((cafe) => (
-          <Card key={cafe.id} data={cafe} />
-        ))}
+    <section className="layout">
+      <Jumbotron />
+      <div className="px-5 lg:px-0 pt-[24px]">
+        <div className="grid grid-cols-cafe gap-4">
+          {filteredCafe.map((cafe) => (
+            <Card key={cafe.id} data={cafe} />
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
-export default Container;
+export default Home;
