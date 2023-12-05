@@ -1,7 +1,1 @@
-import React from "react";
-
-const Contribute = () => {
-  return <section className="layout">Contribute</section>;
-};
-
-export default Contribute;
+export { default } from "@/components/pages/Contribute";

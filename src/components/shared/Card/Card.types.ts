@@ -15,5 +15,6 @@ type CardProps = {
       max: number
     },
     rating: number
-  }
+  },
+  className?: string
 }

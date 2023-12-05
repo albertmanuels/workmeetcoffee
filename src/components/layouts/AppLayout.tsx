@@ -20,7 +20,6 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
       </Head>
-
       <body>
         <HomeProvider>
           <Header />

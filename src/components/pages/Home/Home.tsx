@@ -4,93 +4,24 @@ import Card from "@/components/shared/Card";
 import Jumbotron from "@/components/shared/Jumbotron";
 import React, { useContext } from "react";
 import { HomeContext } from "./context/HomeContext";
-
-const cafeList = [
-  {
-    id: 10,
-    name: "ABC Cafe",
-    location: {
-      city: "Jakarta",
-    },
-    rating: 4.5,
-    price: {
-      min: 20000,
-      max: 100000,
-    },
-    menus: {
-      beverages: true,
-      meals: true,
-      snacks: true,
-    },
-  },
-  {
-    id: 14,
-    name: "Cosan Cafe",
-    location: {
-      city: "Yogyakarta",
-    },
-    rating: 4.8,
-    price: {
-      min: 18000,
-      max: 50000,
-    },
-    menus: {
-      beverages: true,
-      meals: false,
-      snacks: true,
-    },
-  },
-  {
-    id: 28,
-    name: "XYZ Cafe",
-    location: {
-      city: "Jakarta",
-    },
-    rating: 4.2,
-    price: {
-      min: 18000,
-      max: 50000,
-    },
-    menus: {
-      beverages: true,
-      meals: false,
-      snacks: true,
-    },
-  },
-  {
-    id: 23,
-    name: "Senja Cafe",
-    location: {
-      city: "Yogyakarta",
-    },
-    rating: 4.2,
-    price: {
-      min: 18000,
-      max: 50000,
-    },
-    menus: {
-      beverages: true,
-      meals: false,
-      snacks: true,
-    },
-  },
-];
+import { CAFE_LIST } from "./Home.constants";
 
 const Home = () => {
   const { searchValue } = useContext(HomeContext);
 
-  const filteredCafe = cafeList.filter((cafe) =>
+  const filteredCafe = CAFE_LIST.filter((cafe) =>
     cafe.name.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   return (
-    <section className="layout pb-5">
+    <section className="layout mt-[80px] pb-5 h-[calc(100vh - 70px)])">
       <Jumbotron />
       <div className="px-5 lg:px-0 pt-[24px]">
-        <div className="grid grid-cols-cafe gap-4">
+        <div className="grid grid-cols-mobile sm:grid-cols-desktop gap-4">
           {filteredCafe.map((cafe) => (
-            <Card key={cafe.id} data={cafe} />
+            <Card className="" key={cafe.id} data={cafe} />
           ))}
+          {filteredCafe.length === 0 && <p>No Data</p>}
         </div>
       </div>
     </section>
