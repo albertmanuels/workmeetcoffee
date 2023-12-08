@@ -23,7 +23,7 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
       <body>
         <HomeProvider>
           <Header />
-          {children}
+          <section className="layout mt-[80px]">{children}</section>
         </HomeProvider>
       </body>
     </html>

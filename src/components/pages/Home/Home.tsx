@@ -2,26 +2,47 @@
 
 import Card from "@/components/shared/Card";
 import Jumbotron from "@/components/shared/Jumbotron";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { HomeContext } from "./context/HomeContext";
-import { CAFE_LIST } from "./Home.constants";
+import { Payload } from "@/components/types";
 
 const Home = () => {
   const { searchValue } = useContext(HomeContext);
+  const [cafeList, setCafeList] = useState<Array<Payload>>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const filteredCafe = CAFE_LIST.filter((cafe) =>
-    cafe.name.toLowerCase().includes(searchValue.toLowerCase())
+  const filteredCafe = cafeList.filter(
+    (cafe) =>
+      cafe.cafe_name.toLowerCase().includes(searchValue.toLowerCase()) ||
+      cafe.location.toLowerCase().includes(searchValue.toLowerCase())
   );
+  const getNotionData = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch("http://localhost:3000/api/coffeeshop");
+      const data = await response.json();
+
+      setCafeList(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getNotionData();
+  }, []);
 
   return (
-    <section className="layout mt-[80px] pb-5 h-[calc(100vh - 70px)])">
+    <section className="h-[calc(100vh - 70px)])">
       <Jumbotron />
-      <div className="px-5 lg:px-0 pt-[24px]">
-        <div className="grid grid-cols-mobile sm:grid-cols-desktop gap-4">
+      <div className="pt-[24px]">
+        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 px-5 lg:px-0">
           {filteredCafe.map((cafe) => (
-            <Card className="" key={cafe.id} data={cafe} />
+            <Card className="" key={cafe.uid} data={cafe} />
           ))}
-          {filteredCafe.length === 0 && <p>No Data</p>}
+          {isLoading && <p>Loading...</p>}
         </div>
       </div>
     </section>

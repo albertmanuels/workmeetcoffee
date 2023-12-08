@@ -17,8 +17,8 @@ const config: Config = {
     },
     extend: {
       gridTemplateColumns: {
-        'desktop': 'repeat(auto-fit, minmax(14.5rem, 1fr))',
-        'mobile': 'repeat(auto-fit, minmax(8.5rem, 1fr))'
+        'desktop': 'repeat(auto-fit, minmax(14.6rem, 1fr))',
+        'mobile': 'repeat(auto-fit, minmax(10.5rem, 1fr))'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
