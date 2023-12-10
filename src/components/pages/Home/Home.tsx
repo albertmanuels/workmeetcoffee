@@ -4,7 +4,6 @@ import Card from "@/components/shared/Card";
 import Jumbotron from "@/components/shared/Jumbotron";
 import React, { useContext, useEffect, useState } from "react";
 import { HomeContext } from "./context/HomeContext";
-import { Payload } from "@/components/types";
 import { Data } from "../Detail/Detail.types";
 
 const Home = () => {
