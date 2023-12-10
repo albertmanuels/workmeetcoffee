@@ -15,6 +15,7 @@ import RowWrapper from "@/components/shared/RowWrapper";
 import { FACILITIES, initialData } from "./Detail.constants";
 import type { Data } from "./Detail.types";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const DetailCafePage = ({ params }: { params: { slug: string } }) => {
   const [data, setData] = useState<Data>(initialData);
 
@@ -24,7 +25,7 @@ const DetailCafePage = ({ params }: { params: { slug: string } }) => {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `http://localhost:3000/api/coffeeshop/by-slug/${slug}`
+        `${BASE_URL}/api/coffeeshop/by-slug/${slug}`
       );
       const data = await response.json();
       setData(data);

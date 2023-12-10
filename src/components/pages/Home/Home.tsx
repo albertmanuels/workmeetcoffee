@@ -6,6 +6,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { HomeContext } from "./context/HomeContext";
 import { Data } from "../Detail/Detail.types";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 const Home = () => {
   const { searchValue } = useContext(HomeContext);
   const [cafeList, setCafeList] = useState<Array<Data>>([]);
@@ -19,7 +21,7 @@ const Home = () => {
   const getNotionData = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch("http://localhost:3000/api/coffeeshop");
+      const response = await fetch(`${BASE_URL}/api/coffeeshop`);
       const data = await response.json();
 
       setCafeList(data);
