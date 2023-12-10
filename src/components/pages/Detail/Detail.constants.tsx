@@ -43,3 +43,34 @@ export const FACILITIES = [
     component: <IcToilet />,
   },
 ];
+
+export const initialData = {
+  cafe_name: "",
+  indoor: false,
+  outdoor: false,
+  location: "",
+  instagram: "",
+  openTime: "",
+  closedTime: "",
+  menu: {
+    beverages: false,
+    meals: false,
+    snacks: false,
+  },
+  price: {
+    minPrice: 0,
+    maxPrice: 0,
+  },
+  facilities: {
+    wifi: false,
+    air_conditioner: false,
+    sockets: false,
+    meetingRoom: false,
+    musholla: false,
+    toilet: false,
+  },
+  parking: {
+    parkingCar: false,
+    parkingMotorcycle: false,
+  },
+};

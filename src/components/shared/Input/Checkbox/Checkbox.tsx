@@ -1,7 +1,7 @@
 import React from "react";
 import type { CheckboxProps } from "./Checkbox.types";
 
-const Checkbox = (props) => {
+const Checkbox = (props: CheckboxProps) => {
   const { name, label, register } = props;
 
   return (

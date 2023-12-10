@@ -1,7 +1,8 @@
+import { Data } from "@/components/pages/Detail/Detail.types";
 import Link from "next/link";
 import React from "react";
 
-const Card = ({ data, className }) => {
+const Card = ({ data, className }: { data: Data; className: string }) => {
   const formatString = (str: string) => {
     const result = str.replace(/ /g, "-").toLowerCase();
     return result;

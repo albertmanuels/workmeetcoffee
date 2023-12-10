@@ -12,11 +12,12 @@ import IcMenu from "@/public/icons/ic-menu.svg";
 import IcInstagram from "@/public/icons/ic-instagram.svg";
 
 import RowWrapper from "@/components/shared/RowWrapper";
-import { FACILITIES } from "./Detail.constants";
-import { Data } from "./Detail.types";
+import { FACILITIES, initialData } from "./Detail.constants";
+import type { Data } from "./Detail.types";
 
 const DetailCafePage = ({ params }: { params: { slug: string } }) => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState<Data>(initialData);
+
   const [isLoading, setIsLoading] = useState(false);
   const slug = params.slug;
   const getCoffeeShopDetail = async () => {

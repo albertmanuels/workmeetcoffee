@@ -56,8 +56,6 @@ export async function GET(req:Request, {params}: {params: {slug: string}}) {
       },
       facilities: {
         wifi: result.wifi.checkbox,
-        indoor: result.indoor.checkbox,
-        outdoor: result.outdoor.checkbox,
         toilet: result.toilet.checkbox,
         meetingRoom: result.meetingRoom.checkbox,
         musholla: result.musholla.checkbox,

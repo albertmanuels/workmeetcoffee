@@ -5,10 +5,11 @@ import Jumbotron from "@/components/shared/Jumbotron";
 import React, { useContext, useEffect, useState } from "react";
 import { HomeContext } from "./context/HomeContext";
 import { Payload } from "@/components/types";
+import { Data } from "../Detail/Detail.types";
 
 const Home = () => {
   const { searchValue } = useContext(HomeContext);
-  const [cafeList, setCafeList] = useState<Array<Payload>>([]);
+  const [cafeList, setCafeList] = useState<Array<Data>>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const filteredCafe = cafeList.filter(
