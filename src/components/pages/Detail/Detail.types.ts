@@ -1,5 +1,5 @@
 export type Data = {
-  uid?: number;
+  uid?: string;
   cafe_name: string;
   location: string;
   instagram: string;

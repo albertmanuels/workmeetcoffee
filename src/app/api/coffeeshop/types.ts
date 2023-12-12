@@ -17,6 +17,7 @@ type Number = {
 }
 
 export type Row = {
+  uid: PlainText,
   cafe_name: {
     id: string,
     title: Array<

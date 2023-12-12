@@ -1,7 +1,10 @@
 "use client";
 import Checkbox from "@/components/shared/Input/Checkbox/Checkbox";
+import { BASE_URL } from "@/constants";
+import { stringWithoutSpace } from "@/lib/helpers";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { v4 as uid } from "uuid";
 
 const initialValues = {
   cafe_name: "",
@@ -40,8 +43,47 @@ const Contribute = () => {
     }
   }, [isSubmitSuccessful]);
 
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const onSubmit = async (data: any) => {
+    const response = await fetch(`${BASE_URL}/api/coffeeshop/add`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        uid: uid(),
+        cafe_name: data.cafe_name,
+        slug: stringWithoutSpace(data.cafe_name),
+        location: data.location,
+        instagram: data.instagram,
+        openTime: "9.30",
+        closedTime: "21.30",
+        menu: {
+          beverages: data.beverages,
+          meals: data.meals,
+          snacks: data.snacks,
+        },
+        price: {
+          minPrice: 12000,
+          maxPrice: 50000,
+        },
+        facilities: {
+          wifi: data.wifi,
+          indoor: data.indoor,
+          outdoor: data.outdoor,
+          toilet: data.toilet,
+          meetingRoom: data.meetingRoom,
+          musholla: data.musholla,
+          air_conditioner: data.air_conditioner,
+          sockets: data.sockets,
+        },
+        parking: {
+          parkingCar: data.parkingCar,
+          parkingMotorcycle: data.parkingMotorcycle,
+        },
+      }),
+    });
+
+    return response.json;
   };
 
   return (

@@ -2,7 +2,13 @@ import Link from "next/link";
 import React from "react";
 import IcArrowRight from "@/public/icons/ic-arrow-right.svg";
 
-const Breadcrumb = ({ className }: { className: string }) => {
+const Breadcrumb = ({
+  className,
+  slug,
+}: {
+  className: string;
+  slug: string;
+}) => {
   return (
     <nav className={`${className} flex`}>
       <ol className="flex items-center gap-2">
@@ -13,7 +19,7 @@ const Breadcrumb = ({ className }: { className: string }) => {
         </li>
         <li className="flex items-center gap-2">
           <IcArrowRight />
-          <Link href="/detail/xyz-coffee" className="text-sm">
+          <Link href={`/detail/${slug}`} className="text-sm">
             XYZ Coffee
           </Link>
         </li>

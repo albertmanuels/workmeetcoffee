@@ -5,8 +5,7 @@ import Jumbotron from "@/components/shared/Jumbotron";
 import React, { useContext, useEffect, useState } from "react";
 import { HomeContext } from "./context/HomeContext";
 import { Data } from "../Detail/Detail.types";
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+import { BASE_URL } from "@/constants";
 
 const Home = () => {
   const { searchValue } = useContext(HomeContext);
@@ -37,7 +36,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="h-[calc(100vh - 70px)])">
+    <section className="h-[calc(100vh - 70px)]) pb-5">
       <Jumbotron />
       <div className="pt-[24px]">
         <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 px-5 lg:px-0">

@@ -14,23 +14,22 @@ import IcInstagram from "@/public/icons/ic-instagram.svg";
 import RowWrapper from "@/components/shared/RowWrapper";
 import { FACILITIES, initialData } from "./Detail.constants";
 import type { Data } from "./Detail.types";
+import { BASE_URL } from "@/constants";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const DetailCafePage = ({ params }: { params: { slug: string } }) => {
   const [data, setData] = useState<Data>(initialData);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [isLoading, setIsLoading] = useState(false);
   const slug = params.slug;
+
   const getCoffeeShopDetail = async () => {
     try {
-      setIsLoading(true);
       const response = await fetch(
         `${BASE_URL}/api/coffeeshop/by-slug/${slug}`
       );
       const data = await response.json();
       setData(data);
       setIsLoading(false);
-
       if (!response.ok) {
         throw Error();
       }
@@ -50,7 +49,7 @@ const DetailCafePage = ({ params }: { params: { slug: string } }) => {
         <div>Loading...</div>
       ) : (
         <>
-          <Breadcrumb className="mb-[40px]" />
+          <Breadcrumb className="mb-[40px]" slug={slug} />
           <div className="mb-5">
             <h1 className="text-4xl font-semibold text-stone-900 mb-1">
               {data.cafe_name}
