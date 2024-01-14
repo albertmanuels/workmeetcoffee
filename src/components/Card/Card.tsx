@@ -3,7 +3,7 @@ import React from "react";
 
 const Card = () => {
   return (
-    <Link href="/">
+    <Link href="/detail/starbucks">
       <div className="w-full border border-[2px] rounded-md p-4">
         <h5 className="text-md font-semibold mb-1">Starbucks</h5>
         <p className="text-sm mb-2">Jakarta Selatan</p>

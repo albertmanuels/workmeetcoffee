@@ -30,18 +30,18 @@ const SearchBar = ({ searchValue, setSearchValue }: SearchBarProps) => {
     return () => {
       clearTimeout(toDebounce);
     };
-  }, [searchTemp, searchValue, setSearchValue]);
+  }, [searchValue, setSearchValue, searchTemp]);
 
   return (
-    <div className="relative w-fit h-fit mb-4">
+    <div className="relative w-full h-fit mb-4">
+      <Search className="absolute top-1/2 left-2 transform -translate-y-1/2" />
       <input
         type="text"
-        className="w-[600px] border-2 border-zinc-500 rounded-full mx-auto py-3 px-5 focus:outline-black"
+        className="w-full border-2 border-zinc-500 rounded-lg mx-auto pl-[50px] py-2 px-4 focus:outline-black"
         placeholder="cari coffee shop favoritmu"
-        value={searchValue}
+        value={searchTemp}
         onChange={(e) => setSearchTemp(e.target.value)}
       />
-      <Search className="absolute top-1/2 right-5 transform -translate-y-1/2" />
     </div>
   );
 };

@@ -8,7 +8,7 @@ const HomePage = () => {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <article className="py-12 px-4 md:px-0">
+    <section className="py-12 px-4 md:px-0">
       <div className="layout">
         <div className="flex flex-col items-center mb-14">
           <h4 className="text-xl font-semibold mb-3">
@@ -27,7 +27,7 @@ const HomePage = () => {
           <Card />
         </div>
       </div>
-    </article>
+    </section>
   );
 };
 
