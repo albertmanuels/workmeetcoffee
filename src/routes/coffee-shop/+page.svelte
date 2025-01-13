@@ -1,0 +1,1 @@
+<div>Coffee Shop page</div>
